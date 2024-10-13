@@ -1,4 +1,5 @@
 import json
+import pygame  
 from kivy.app import App
 from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.uix.boxlayout import BoxLayout
@@ -75,7 +76,6 @@ internships = [
     {"title": "Mental Health Intern", "skills": ["Empathy", "Communication"], "location": "Plano", "industry": "Medical"},
     {"title": "Medical Coding Intern", "skills": ["Attention to Detail", "Data Entry"], "location": "Frisco", "industry": "Medical"},
 ]
-
 class WelcomeScreen(Screen):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
@@ -134,10 +134,6 @@ class MainScreen(Screen):
         with self.canvas.before:
             Color(0.1, 0.1, 0.5, 1)  # Dark slate blue
             self.rect1 = Rectangle(size=self.size, pos=self.pos)
-            Color(1, 1, 1, 1)  # White
-            self.rect2 = Rectangle(size=self.size, pos=self.pos)
-            Color(0.6, 0.4, 0.8, 1)  # Middle purple
-            self.rect3 = Rectangle(size=self.size, pos=self.pos)
 
         # Title
         title = Label(text="Internship Opportunities", font_size=24, size_hint_y=None, height=40)
@@ -193,10 +189,6 @@ class MainScreen(Screen):
     def update_background(self, *args):
         self.rect1.pos = self.pos
         self.rect1.size = self.size
-        self.rect2.pos = self.pos
-        self.rect2.size = self.size
-        self.rect3.pos = self.pos
-        self.rect3.size = self.size
 
     def toggle_skill(self, button):
         if button.background_color == [1, 1, 1, 1]:  # White
@@ -281,14 +273,21 @@ class ProfileScreen(Screen):
 
 class MyApp(App):
     def build(self):
+        # Initialize Pygame
+        pygame.mixer.init()  # Initialize the mixer module
+        pygame.mixer.music.load('Music.mp3')  # Load your music file
+        pygame.mixer.music.play(-1)  # Play the music in a loop
+
         sm = ScreenManager()
         sm.add_widget(WelcomeScreen(name='welcome'))
         sm.add_widget(MainScreen(name='main'))
         sm.add_widget(ProfileScreen(name='profile'))
         return sm
 
+    def on_stop(self):
+        pygame.mixer.music.stop()  # Stop the music when the app stops
+
 
 if __name__ == '__main__':
     MyApp().run()
-
 
