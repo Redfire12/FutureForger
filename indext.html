@@ -1,0 +1,119 @@
+<!-- Navigation Bar -->
+<header>
+  <nav class="navbar">
+    <div class="logo">FutureForge</div>
+    <ul class="nav-links">
+      <li><a href="#" class="nav-link" data-page="home">Home</a></li>
+      <li><a href="#" class="nav-link" data-page="about-section">About</a></li>
+      <li><a href="#" class="nav-link" data-page="past-events">Past Events</a></li>
+      <li><a href="#" class="nav-link" data-page="resources">Resources</a></li>
+      <li><a href="#" class="nav-link" data-page="gallery">Gallery</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- Home Page Section -->
+<div id="home" class="page active">
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Empowering Student Success</h1>
+      <p>Your gateway to internships and volunteer opportunities that shape your future.</p>
+      <a href="#" class="cta-button" data-page="services">Explore Opportunities</a>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about-section" class="about section-offset">
+    <h2>About FutureForge</h2>
+    <p>FutureForge is dedicated to helping students secure meaningful internship and volunteer opportunities. Our mission is to empower the next generation of leaders by connecting them with experiences that shape their future.</p>
+  </section>
+
+  <!-- Upcoming Events Section -->
+  <section id="upcoming-events-section" class="upcoming-events section-offset">
+    <h2>Upcoming Events</h2>
+    <div class="event-cards">
+      <div class="card">
+        <h3>Career Fair 2024</h3>
+        <p>Join us for our annual career fair featuring top companies looking for interns and volunteers. Date: October 15, 2024.</p>
+      </div>
+      <div class="card">
+        <h3>Volunteer Workshop</h3>
+        <p>Learn how to make a difference in your community with our hands-on volunteer workshop. Date: November 5, 2024.</p>
+      </div>
+      <div class="card">
+        <h3>Resume Building Seminar</h3>
+        <p>Get expert tips on crafting a standout resume in our resume building seminar. Date: December 1, 2024.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section id="testimonials-section" class="testimonials section-offset">
+    <h2>What Students Are Saying</h2>
+    <div class="testimonial-quotes">
+      <blockquote>
+        "FutureForge helped me land my dream internship. Their support was invaluable!" <span>- Jane Doe, Marketing Student</span>
+      </blockquote>
+      <blockquote>
+        "The volunteer opportunities I found through FutureForge were life-changing." <span>- John Smith, Engineering Student</span>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact-section" class="contact section-offset">
+    <h2>Contact Us</h2>
+    <p>Interested in learning more? Reach out to us at <a href="mailto:info@futureforge.com">info@futureforge.com</a> or call us at (555) 555-5555.</p>
+  </section>
+</div>
+
+<!-- Past Events Page Section -->
+<div id="past-events" class="page">
+  <h2>Past Events</h2>
+  <p>Descriptions and images of past events will go here.</p>
+</div>
+
+<!-- Resources Page Section -->
+<div id="resources" class="page">
+  <h2>Resources</h2>
+  <div class="resource-links">
+    <a href="#" class="resource-button">Sign Up</a>
+    <a href="#" class="resource-button">Video Links</a>
+  </div>
+</div>
+
+<section class="gallery" id="gallery">
+  <h2>Gallery</h2>
+  <div class="gallery-grid">
+    <img src="https://via.placeholder.com/300x200?text=Career+Fair+1" alt="Career Fair 1">
+    <img src="https://via.placeholder.com/300x200?text=Career+Fair+2" alt="Career Fair 2">
+    <img src="https://via.placeholder.com/300x200?text=Career+Fair+3" alt="Career Fair 3">
+    <img src="https://via.placeholder.com/300x200?text=Career+Fair+4" alt="Career Fair 4">
+    <img src="https://via.placeholder.com/300x200?text=Career+Fair+5" alt="Career Fair 5">
+    <img src="https://via.placeholder.com/300x200?text=Career+Fair+6" alt="Career Fair 6">
+  </div>
+</section>
+
+
+<!-- Script for navigation between pages -->
+<script>
+  const navLinks = document.querySelectorAll('.nav-link');
+  const pages = document.querySelectorAll('.page');
+
+  navLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+
+      const targetPage = e.target.getAttribute('data-page');
+      
+      // Hide all pages
+      pages.forEach(page => {
+        page.classList.remove('active');
+      });
+
+      // Show the target page
+      document.getElementById(targetPage).classList.add('active');
+    });
+  });
+</script>
